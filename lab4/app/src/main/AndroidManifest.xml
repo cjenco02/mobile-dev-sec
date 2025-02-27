@@ -35,7 +35,8 @@
         </activity>
         <service
             android:name=".MyService"
-            android:permission="com.example.servicecreator.permission.MY_CUSTOM_PERMISSION">
+            android:exported="true"
+            android:permission="com.csec467.servicecreator.permission.MY_CUSTOM_PERMISSION">
         </service>
     </application>
 
