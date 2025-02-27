@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.csec467.servicecreator"
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Request native permissions -->
@@ -10,7 +11,7 @@
 
     <!-- Define custom permission with signature protection -->
     <permission
-        android:name="com.example.servicecreator.permission.MY_CUSTOM_PERMISSION"
+        android:name="com.csec467.servicecreator.permission.MY_CUSTOM_PERMISSION"
         android:protectionLevel="signature" />
 
     <application
@@ -32,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyService"
+            android:permission="com.example.servicecreator.permission.MY_CUSTOM_PERMISSION">
+        </service>
     </application>
 
 </manifest>
