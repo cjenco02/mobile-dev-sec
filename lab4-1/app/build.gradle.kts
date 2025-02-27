@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("C:\\Users\\cjenc\\repos\\mobile-dev-sec\\keystore\\keystore.jks")
+            storePassword = "keystore"
+            keyAlias = "mykey"
+            keyPassword = "mykey!"
+        }
+    }
     namespace = "com.csec467.serviceinvoker"
     compileSdk = 35
 
@@ -16,6 +24,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig = signingConfigs.getByName("release")
     }
 
     buildTypes {

@@ -11,7 +11,7 @@
 
     <!-- Define custom permission with signature protection -->
     <permission
-        android:name="com.csec467.servicecreator.permission.MY_CUSTOM_PERMISSION"
+        android:name="com.csec467.servicecreator.permission.CUSTOM_PERMISSION"
         android:protectionLevel="signature" />
 
     <application
@@ -36,7 +36,7 @@
         <service
             android:name=".MyService"
             android:exported="true"
-            android:permission="com.csec467.servicecreator.permission.MY_CUSTOM_PERMISSION">
+            android:permission="com.csec467.servicecreator.permission.CUSTOM_PERMISSION">
         </service>
     </application>
 

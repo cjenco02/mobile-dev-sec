@@ -1,10 +1,13 @@
 package com.csec467.servicecreator;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -13,12 +16,19 @@ public class MyService extends Service {
     private static final String TAG = "MyService";
     public static final String SSID_BROADCAST = "com.csec467.SSID_BROADCAST";
 
+    /*
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         new Thread(this::sendSSIDBroadcast).start();
         return START_NOT_STICKY;
     }
-
+    */
+    //@SuppressLint("ForegroundServiceType")
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "MyService started successfully");
+        return START_STICKY;
+    }
     private void sendSSIDBroadcast() {
         try {
             WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);

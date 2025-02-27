@@ -1,6 +1,8 @@
 package com.csec467.serviceinvoker;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -30,21 +32,19 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    //@RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    @SuppressLint("InlinedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button invokeButton = findViewById(R.id.invokeButton);
-        invokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClassName("com.csec467.servicecreator", "com.csec467.servicecreator.MyService");
-                startService(intent);
-                Log.d(TAG, "Service invoked");
-            }
+        invokeButton.setOnClickListener(v -> {
+            Intent serviceIntent = new Intent();
+            serviceIntent.setComponent(new ComponentName("com.csec467.servicecreator", "com.csec467.servicecreator.MyService"));
+            startService(serviceIntent);
+            Log.d(TAG, "Service invoked");
         });
 
         // Register Broadcast Receiver

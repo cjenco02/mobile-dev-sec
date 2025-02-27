@@ -4,7 +4,7 @@ plugins {
 
 android {
     signingConfigs {
-        getByName("debug") {
+        create("release") {
             storeFile = file("C:\\Users\\cjenc\\repos\\mobile-dev-sec\\keystore\\keystore.jks")
             storePassword = "keystore"
             keyAlias = "mykey"
@@ -27,10 +27,8 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            signingConfig = signingConfigs.getByName("release")
+
         }
     }
     compileOptions {
