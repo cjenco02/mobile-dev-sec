@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("C:\\Users\\cjenc\\repos\\mobile-dev-sec\\keystore\\keystore.jks")
+            storePassword = "keystore"
+            keyAlias = "mykey"
+            keyPassword = "mykey!"
+        }
+    }
     namespace = "com.csec467.servicecreator"
     compileSdk = 35
 
@@ -26,8 +34,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 

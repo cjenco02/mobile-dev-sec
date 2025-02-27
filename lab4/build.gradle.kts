@@ -2,3 +2,5 @@
 plugins {
     alias(libs.plugins.android.application) apply false
 }
+val sourceCompatibility by extra(JavaVersion.VERSION_21)
+val sourceCompatibility1 by extra(sourceCompatibility)
